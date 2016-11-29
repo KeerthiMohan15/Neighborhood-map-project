@@ -1,6 +1,7 @@
 var map;
 var marker;
 var markers = [];
+var infowindow;
 
 var myplaces = [{
     title: "LuLu Mall",
@@ -173,5 +174,5 @@ var Alert = function() {
 jQuery(function($) {
     $('.menu-btn').click(function() {
         $('.responsive-menu').toggleClass('expand')
-    })
-})
+    });
+});
