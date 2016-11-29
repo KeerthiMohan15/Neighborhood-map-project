@@ -158,7 +158,7 @@ var MyAppsViewModel = function(){
     self.myplaces = ko.observableArray(myplaces);
     self.title = ko.observable('');
     this.setMarker = function(){
-        console.log("show marker")
+        populateInfoWindow(this.marker,infowindow);
     };
 };
 
