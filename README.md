@@ -3,10 +3,10 @@
 
 ##How to use
 
-1)Download and extract the zip file onto your local machine
-2)Open index.html to view the application
-3)There are markers showing 7 different landmarks of the city
-4)Click on them to know more about them.
+* 1)Download and extract the zip file onto your local machine
+* 2)Open index.html to view the application
+* 3)There are markers showing 7 different landmarks of the city
+* 4)Click on them to know more about them.
 
 ##What is done?
 
@@ -19,16 +19,19 @@ Images are compressed and converted into png using online converter and compress
 
 ###Sites used for Compression:
 
-1)Optimizilla
-2)Jpg2Png
+* 1)Optimizilla
+* 2)Jpg2Png
 
 ###Resources used
 
-1)Udacity Course materials
-  a)Building the Move Planner App(reference for AJAX request)
-2)For hamburger menu
-  http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
-3)Google API Documentation
-4)Knockout documentation
-5)jQuery API documentation
+* 1)Udacity Course materials
+    ** a)Building the Move Planner App(reference for AJAX request)
+* 2)For hamburger menu
+    ** http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
+* 3)Google API Documentation
+* 4)Knockout documentation
+* 5)jQuery API documentation
+
+A huge thanks to the mentors and coaches of Udacity for their huge support in the discussion forums
+  *https://discussions.udacity.com/t/binding-with-corresponding-marker-on-clicking-element-in-list/200821
 

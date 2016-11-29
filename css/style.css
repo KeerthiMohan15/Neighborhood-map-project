@@ -33,7 +33,7 @@ html, body {
     color: white;
     font-size: 20px;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 #search {
@@ -42,7 +42,11 @@ html, body {
 
 .list {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.list-content {
+    padding-bottom: 5px;
 }
 
  @media only screen and (max-width: 800px){
