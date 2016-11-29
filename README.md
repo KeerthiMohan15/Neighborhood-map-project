@@ -25,13 +25,13 @@ Images are compressed and converted into png using online converter and compress
 ###Resources used
 
 * Udacity Course materials
-    ** a)Building the Move Planner App(reference for AJAX request)
+    * Building the Move Planner App(reference for AJAX request)
 * For hamburger menu
-    ** http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
+    * http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
 * Google API Documentation
 * Knockout documentation
 * jQuery API documentation
 
 A huge thanks to the mentors and coaches of Udacity for their huge support in the discussion forums
-  *https://discussions.udacity.com/t/binding-with-corresponding-marker-on-clicking-element-in-list/200821
+  * https://discussions.udacity.com/t/binding-with-corresponding-marker-on-clicking-element-in-list/200821
 
