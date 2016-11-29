@@ -22,7 +22,7 @@
             <div class="searchme">Find your spot here</div>
                <input type="search" id="search" placeholder="Search" data-bind="">
             </div>
-            <ul>
+            <ul class="list" data-bind="foreach: myplaces">
                <li data-bind="text:title"></li>
             </ul>
          </div>

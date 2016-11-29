@@ -1,6 +1,6 @@
 var map;
-var markers = [];
 var marker;
+var markers = [];
 
 var myplaces = [{
     title: 'Chottanikkara Temple',
@@ -59,7 +59,7 @@ function initMap() {
             lat: 9.9816358,
             lng: 76.2998842
         },
-        zoom: 12
+        zoom: 10,
     });
     getmymarkers();
 }
@@ -78,8 +78,8 @@ function getmymarkers() {
         marker = new google.maps.Marker({
             map: map,
             position: position,
-            title: title,
             img: img,
+            title: title,
             animation: google.maps.Animation.DROP,
             id: i,
         });
@@ -132,6 +132,14 @@ function populateInfoWindow(marker, infowindow) {
         }
     });
 };
+
+var MyAppsViewModel = function(){
+    var self = this;
+    self.myplaces = ko.observableArray(myplaces);
+    self.title = ko.observable('');
+}
+
+ko.applyBindings(new MyAppsViewModel());
 
 // If Google Map alerts its failure to load
 var Alert = function() {
