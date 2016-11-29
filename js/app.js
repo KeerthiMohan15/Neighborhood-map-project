@@ -83,13 +83,13 @@ function initMap() {
         },
         zoom: 10,
     });
-    var myInfowindow = new google.maps.InfoWindow();
+    var myInfoWindow = new google.maps.InfoWindow();
     getmymarkers();
 }
 
 //Initiating the markers and calling the infowindow to open on them.Also fixing the boundary.
 function getmymarkers() {
-    var myInfowindow = new google.maps.InfoWindow();
+    var myInfoWindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
     // The following group uses the myplaces array to create an array of markers on initialize.
     for (var i = 0; i < myplaces.length; i++) {
@@ -109,7 +109,7 @@ function getmymarkers() {
         markers.push(marker);
         // Create an onclick event to open an infowindow at each marker.
         marker.addListener('click', function() {
-            populateInfoWindow(this, myInfowindow);
+            populateInfoWindow(this, myInfoWindow);
         });
         bounds.extend(markers[i].position);
         myplaces[i].marker = marker;
