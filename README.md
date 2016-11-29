@@ -25,7 +25,10 @@ Images are compressed and converted into png using online converter and compress
 ###Resources used
 
 1)Udacity Course materials
-  a)Minicourse AJAX project
-2)Google API Documentation
-3)Knockout documentation
-4)jQuery API documentation
+  a)Building the Move Planner App(reference for AJAX request)
+2)For hamburger menu
+  http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
+3)Google API Documentation
+4)Knockout documentation
+5)jQuery API documentation
+

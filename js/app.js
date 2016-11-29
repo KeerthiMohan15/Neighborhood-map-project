@@ -3,26 +3,12 @@ var marker;
 var markers = [];
 
 var myplaces = [{
-    title: 'Chottanikkara Temple',
+    title: "LuLu Mall",
     location: {
-        lat: 9.933126,
-        lng: 76.391356
-    }, // latitude and longitude
-    img: 'img/chottanikkara.png',
-}, {
-    title: 'Ernakulam Shiva Temple',
-    location: {
-        lat: 9.969106,
-        lng: 76.288631
+        lat: 10.027054,
+        lng: 76.308079
     },
-    img: 'img/ErnakulamShivaTemple.png',
-}, {
-    title: 'Sree Poornathrayeesa Temple',
-    location: {
-        lat: 9.945009,
-        lng: 76.342226
-    },
-    img: 'img/poornathrayeeshatemple.png',
+    img: 'img/lulu.png',
 }, {
     title: 'Hill Palace',
     location: {
@@ -31,13 +17,6 @@ var myplaces = [{
     },
     img: 'img/hillpalace.png',
 }, {
-    title: 'Marine Drive',
-    location: {
-        lat: 9.98258,
-        lng: 76.275427
-    },
-    img: 'img/marinedrive.png',
-}, {
     title: 'Mattancherry Palace',
     location: {
         lat: 9.958275,
@@ -45,12 +24,54 @@ var myplaces = [{
     },
     img: 'img/mattancherypalace.png',
 }, {
-    title: "LuLu Mall",
+    title: 'Indo-Portuguese Museum',
     location: {
-        lat: 10.027054,
-        lng: 76.308079
+        lat: 9.965779,
+        lng: 76.242115
     },
-    img: 'img/lulu.png',
+    img: 'img/indoportuguesemuseum.png',
+}, {
+    title: 'Marine Drive,Kochi',
+    location: {
+        lat: 9.98258,
+        lng: 76.275427
+    },
+    img: 'img/marinedrive.png',
+}, {
+    title: 'Sree Poornathrayeesa Temple',
+    location: {
+        lat: 9.945009,
+        lng: 76.342226
+    },
+    img: 'img/poornathrayeeshatemple.png',
+}, {
+    title: 'Chottanikkara Temple',
+    location: {
+        lat: 9.933126,
+        lng: 76.391356
+    }, // latitude and longitude
+    img: 'img/chottanikkara.png',
+}, {
+    title: 'Thrikkakara Temple',
+    location: {
+        lat: 10.034357,
+        lng: 76.328703
+    },
+    img: 'img/thrikkakara.png',
+}, {
+    title: 'Ernakulam Shiva Temple',
+    location: {
+        lat: 9.969106,
+        lng: 76.288631
+    },
+    img: 'img/ErnakulamShivaTemple.png',
+}, {
+    title: 'Thamaramkulangara Sree Dharma Sastha Temple',
+    location: {
+        lat: 9.948683,
+        lng: 76.346362
+    },
+    img: 'img/shasthatemple.png',
 }];
 
 function initMap() {
@@ -136,7 +157,10 @@ var MyAppsViewModel = function(){
     var self = this;
     self.myplaces = ko.observableArray(myplaces);
     self.title = ko.observable('');
-}
+    this.setMarker = function(){
+        console.log("show marker")
+    };
+};
 
 ko.applyBindings(new MyAppsViewModel());
 
@@ -145,7 +169,7 @@ var Alert = function() {
     alert('Failed to load!!');
 };
 
-//NavBar
+//Navigation Bar
 jQuery(function($) {
     $('.menu-btn').click(function() {
         $('.responsive-menu').toggleClass('expand')

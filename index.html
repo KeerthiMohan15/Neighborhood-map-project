@@ -21,10 +21,10 @@
             <div>
             <div class="searchme">Find your spot here</div>
                <input type="search" id="search" placeholder="Search" data-bind="">
-            </div>
             <ul class="list" data-bind="foreach: myplaces">
-               <li data-bind="text:title"></li>
+               <li data-bind="text:title, click:$parent.setMarker"></li>
             </ul>
+            </div>
          </div>
       </div>
       <div id="map"></div>
