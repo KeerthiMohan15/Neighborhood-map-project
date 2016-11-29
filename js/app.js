@@ -1,6 +1,6 @@
 var map;
 var marker;
-var myInfowindow;
+var myInfoWindow;
 var markers = [];
 
 var myplaces = [{
@@ -161,7 +161,7 @@ var MyAppsViewModel = function(){
     self.myplaces = ko.observableArray(myplaces);
     self.title = ko.observable('');
     this.setMarker = function(){
-        populateInfoWindow(this.marker,myInfowindow);
+        populateInfoWindow(this.marker,myInfoWindow);
     };
 };
 
