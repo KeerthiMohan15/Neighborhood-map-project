@@ -1,7 +1,7 @@
 var map;
 var marker;
+var myInfowindow;
 var markers = [];
-var infowindow;
 
 var myplaces = [{
     title: "LuLu Mall",
@@ -83,6 +83,7 @@ function initMap() {
         },
         zoom: 10,
     });
+    var myInfowindow = new google.maps.InfoWindow();
     getmymarkers();
 }
 
@@ -111,6 +112,7 @@ function getmymarkers() {
             populateInfoWindow(this, myInfowindow);
         });
         bounds.extend(markers[i].position);
+        myplaces[i].marker = marker;
     }
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
@@ -159,7 +161,7 @@ var MyAppsViewModel = function(){
     self.myplaces = ko.observableArray(myplaces);
     self.title = ko.observable('');
     this.setMarker = function(){
-        populateInfoWindow(this.marker,infowindow);
+        populateInfoWindow(this.marker,myInfowindow);
     };
 };
 
