@@ -68,9 +68,9 @@ function initMap() {
 function getmymarkers() {
     var myInfowindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
-    // The following group uses the location array to create an array of markers on initialize.
+    // The following group uses the myplaces array to create an array of markers on initialize.
     for (var i = 0; i < myplaces.length; i++) {
-        // Get the position from the location array.
+        // Get the position from the myplaces array.
         var position = myplaces[i].location;
         var title = myplaces[i].title;
         var img = myplaces[i].img;
@@ -78,10 +78,9 @@ function getmymarkers() {
         marker = new google.maps.Marker({
             map: map,
             position: position,
-            img: img,
             title: title,
             animation: google.maps.Animation.DROP,
-            id: i,
+            img: img,
         });
         // Push the marker to our array of markers.
         markers.push(marker);
@@ -95,18 +94,17 @@ function getmymarkers() {
     map.fitBounds(bounds);
 }
 
-// This function populates the infowindow when the marker is clicked. We'll only allow
-// one infowindow which will open at the marker that is clicked, and populate based
-// on that markers position.
+//populate infowindow when the marker is clicked and only open on the clicked marker
 function populateInfoWindow(marker, infowindow) {
-    // Check to make sure the infowindow is not already opened on this marker.
+    //See if the infowindow is not opened already on this marker.
     if (infowindow.marker != marker) {
         infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br>' + '<div id="wikipedia-links"></div>');
         infowindow.marker = marker;
         infowindow.open(map, marker);
-        // Make sure the marker property is cleared if the infowindow is closed.
+        marker.setAnimation(google.maps.Animation.BOUNCE);//applying bounce animation when marker is clicked toopen infowindow
         infowindow.addListener('closeclick', function() {
-            infowindow.marker = null;
+            infowindow.marker = null;//clear marker property on closing infowindow
+            marker.setAnimation(null);//stopping bounce animation on closing infowindow
         });
     }
 
@@ -133,6 +131,7 @@ function populateInfoWindow(marker, infowindow) {
     });
 };
 
+//Knockout binding
 var MyAppsViewModel = function(){
     var self = this;
     self.myplaces = ko.observableArray(myplaces);
