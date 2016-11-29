@@ -19,18 +19,18 @@ Images are compressed and converted into png using online converter and compress
 
 ###Sites used for Compression:
 
-* 1)Optimizilla
-* 2)Jpg2Png
+* Optimizilla
+* Jpg2Png
 
 ###Resources used
 
-* 1)Udacity Course materials
+* Udacity Course materials
     ** a)Building the Move Planner App(reference for AJAX request)
-* 2)For hamburger menu
+* For hamburger menu
     ** http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
-* 3)Google API Documentation
-* 4)Knockout documentation
-* 5)jQuery API documentation
+* Google API Documentation
+* Knockout documentation
+* jQuery API documentation
 
 A huge thanks to the mentors and coaches of Udacity for their huge support in the discussion forums
   *https://discussions.udacity.com/t/binding-with-corresponding-marker-on-clicking-element-in-list/200821
