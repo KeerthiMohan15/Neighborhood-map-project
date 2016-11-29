@@ -3,10 +3,10 @@
 
 ##How to use
 
-* 1)Download and extract the zip file onto your local machine
-* 2)Open index.html to view the application
-* 3)There are markers showing 7 different landmarks of the city
-* 4)Click on them to know more about them.
+* Download and extract the zip file onto your local machine
+* Open index.html to view the application
+* There are markers showing 7 different landmarks of the city
+* Click on them to know more about them.
 
 ##What is done?
 
