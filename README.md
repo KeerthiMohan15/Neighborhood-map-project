@@ -14,7 +14,6 @@ Using html, css, jquery and knockoutJS library, made a map of Kochin city and so
 Included the Google API and a Media API  with a valid license key to incorporate the Google Map and Wikipedia links
 Data requests that fail are handled **gracefully** using common fallback techniques through the browser's Alert window.
 Have included option with search and Filter options and also a navbar for the tab and mobile.
-Added the Google Marker with Bounce Animation and Labeling the Marker with numbers.
 JS,HTML,CSS are beautified and minified using online tools.
 Images are compressed and converted into png using online converter and compressor.
 
