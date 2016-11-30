@@ -1,3 +1,8 @@
+// If Google Map alerts its failure to load
+var Alert = function() {
+    alert('Failed to load!!');
+};
+
 var map;
 var marker;
 var myInfoWindow;
@@ -176,11 +181,19 @@ var MyAppsViewModel = function(){
     this.setMarker = function(){
         populateInfoWindow(this.marker,myInfoWindow);
     };
+
+
+    MyAppsViewModel.filteredItems = ko.computed(function() {
+    var filter = this.filter().toLowerCase();
+    if (!filter) {
+        return this.myplaces();
+    } else {
+        return ko.utils.arrayFilter(this.myplaces(), function(myplaces) {
+            return ko.utils.stringStartsWith(myplaces.title().toLowerCase(), filter);
+        });
+    }
+}, MyAppsViewModel);
+
 };
 
 ko.applyBindings(new MyAppsViewModel());
-
-// If Google Map alerts its failure to load
-var Alert = function() {
-    alert('Failed to load!!');
-};
