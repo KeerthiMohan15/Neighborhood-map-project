@@ -25,6 +25,13 @@ var myplaces = [{
     },
     img: 'img/mattancherypalace.png',
 }, {
+    title: 'Paradesi Synagogue',
+    location: {
+        lat: 9.9575,
+        lng: 76.2594
+    },
+    img: 'img/jewishsynagogue.png',
+}, {
     title: 'Indo-Portuguese Museum',
     location: {
         lat: 9.965779,
@@ -39,9 +46,16 @@ var myplaces = [{
     },
     img: 'img/marinedrive.png',
 }, {
+    title: 'Mangalavanam Bird Sanctuary',
+    location: {
+        lat: 9.9892,
+        lng: 76.2735
+    },
+    img: 'img/birdsanct.png',
+}, {
     title: 'Sree Poornathrayeesa Temple',
     location: {
-        lat: 9.945009,
+     lat: 9.945009,
         lng: 76.342226
     },
     img: 'img/poornathrayeeshatemple.png',
@@ -170,10 +184,3 @@ ko.applyBindings(new MyAppsViewModel());
 var Alert = function() {
     alert('Failed to load!!');
 };
-
-//Navigation Bar
-jQuery(function($) {
-    $('.menu-btn').click(function() {
-        $('.responsive-menu').toggleClass('expand')
-    });
-});
