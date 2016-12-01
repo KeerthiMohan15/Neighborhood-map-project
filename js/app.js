@@ -182,17 +182,43 @@ var MyAppsViewModel = function(){
         populateInfoWindow(this.marker,myInfoWindow);
     };
 
+//Method1
+    // self.filterlist = ko.computed(function(){
+    //     var filter = self.title().toLowerCase();
+    //     myInfoWindow.close();
+    //     ko.utils.arrayForEach(self.myplaces(), function(i) {
+    //     i.isActive(false);
+    // });
+    //         if (!filter) {
+    //         ko.utils.arrayForEach(self.myplaces(), function(i) {
+    //             i.marker.setVisible(true);
+    //         });
+    //         return self.myplaces();
+    //     } else {
+    //         return ko.utils.arrayFilter(self.myplaces(), function(i) {
+    //             if (i.name.toLowerCase().indexOf(filter) !== -1) {
+    //                 i.marker.setVisible(true);
+    //                 return true;
+    //             } else {
+    //                 i.marker.setVisible(false);
+    //                 return false;
+    //             }
+    //         });
+    //     }
+    // }, self);
 
-    MyAppsViewModel.filteredItems = ko.computed(function() {
-    var filter = this.filter().toLowerCase();
-    if (!filter) {
-        return this.myplaces();
-    } else {
-        return ko.utils.arrayFilter(this.myplaces(), function(myplaces) {
-            return ko.utils.stringStartsWith(myplaces.title().toLowerCase(), filter);
-        });
-    }
-}, MyAppsViewModel);
+
+//Method2
+//     MyAppsViewModel.filteredItems = ko.computed(function() {
+//     var filter = this.filter().toLowerCase();
+//     if (!filter) {
+//         return this.myplaces();
+//     } else {
+//         return ko.utils.arrayFilter(this.myplaces(), function(myplaces) {
+//             return ko.utils.stringStartsWith(myplaces.title().toLowerCase(), filter);
+//         });
+//     }
+// }, MyAppsViewModel);
 
 };
 
