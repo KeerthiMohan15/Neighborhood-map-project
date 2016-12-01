@@ -192,10 +192,12 @@ var MyAppsViewModel = function() {
     self.search = ko.computed(function() {
         return mysearchList = ko.utils.arrayFilter(self.myplaces(), function(i) {
             if (i.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0) {
-                    i.marker == true;
+                if(i.marker){
+                    i.marker.setVisible(true);
+                }
                     return true;
             } else {
-                return false;
+                i.marker.setVisible(false);
             }
         });
     });
