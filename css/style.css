@@ -36,7 +36,7 @@ html, body {
     padding-bottom: 10px;
 }
 
-#search {
+#search, #resetme{
     padding: 5px;
 }
 

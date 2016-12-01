@@ -1,3 +1,8 @@
+//Reload page
+var reload = function(){
+    window.location.reload();
+};
+
 // If Google Map alerts its failure to load
 var Alert = function() {
     alert('Failed to load!!');
@@ -191,7 +196,7 @@ var MyAppsViewModel = function() {
                 }
                 return true;
             } else {
-                i.marker == false;
+                alert('No match found');
             }
         });
         return mysearchList;
