@@ -20,17 +20,8 @@
          <div class="responsive-menu">
             <div>
             <div class="searchme">Find your spot here</div>
-               <input type="search" id="search" placeholder="Search" data-bind="">
-
-<!-- Method3 -->
-<!--                <input type="search" id="search" placeholder="Search" data-bind="textInput: query, valueUpdate: 'keyup'"> -->
-
-<!-- Method1 -->
-<!--                <input type="search" id="search" placeholder="Search" data-bind="value: title, valueUpdate: 'afterkeydown'"> -->
-
-<!-- Method2 -->
-<!--                <input type="search" id="search" placeholder="Search" data-bind="value: filter, valueUpdate: 'afterkeydown'" autocomplete="off"> -->
-            <ul class="list" data-bind="foreach: myplaces">
+               <input type="search" id="search" placeholder="Search" data-bind="textInput: query, valueUpdate:'keyup'" autocomplete="off">
+            <ul class="list" data-bind="foreach: search">
                <li class="list-content" data-bind="text:title, click:$parent.setMarker"></li>
             </ul>
             </div>

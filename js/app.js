@@ -60,7 +60,7 @@ var myplaces = [{
 }, {
     title: 'Sree Poornathrayeesa Temple',
     location: {
-     lat: 9.945009,
+        lat: 9.945009,
         lng: 76.342226
     },
     img: 'img/poornathrayeeshatemple.png',
@@ -144,10 +144,10 @@ function populateInfoWindow(marker, infowindow) {
         infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br>' + '<div id="wikipedia-links"></div>');
         infowindow.marker = marker;
         infowindow.open(map, marker);
-        marker.setAnimation(google.maps.Animation.BOUNCE);//applying bounce animation when marker is clicked toopen infowindow
+        marker.setAnimation(google.maps.Animation.BOUNCE); //applying bounce animation when marker is clicked toopen infowindow
         infowindow.addListener('closeclick', function() {
-            infowindow.marker = null;//clear marker property on closing infowindow
-            marker.setAnimation(null);//stopping bounce animation on closing infowindow
+            infowindow.marker = null; //clear marker property on closing infowindow
+            marker.setAnimation(null); //stopping bounce animation on closing infowindow
         });
     }
 
@@ -174,60 +174,28 @@ function populateInfoWindow(marker, infowindow) {
     });
 };
 
-//Knockout binding
-var MyAppsViewModel = function(){
+//Knockout binding //Filtering action
+var MyAppsViewModel = function() {
     var self = this;
     self.myplaces = ko.observableArray(myplaces);
     self.title = ko.observable('');
-    this.setMarker = function(){
-        populateInfoWindow(this.marker,myInfoWindow);
-    };
-//Method3
-    // self.query = ko.observable('');
-    // self.search = ko.computed(function() {
-    //     return ko.utils.arrayFilter(self.myplaces(), function(title){
-    //         return myplaces.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0;
-    //     });
-    // });
-
-//Method1
-    // self.filterlist = ko.computed(function(){
-    //     var filter = self.title().toLowerCase();
-    //     myInfoWindow.close();
-    //     ko.utils.arrayForEach(self.myplaces(), function(i) {
-    //     i.isActive(false);
-    // });
-    //         if (!filter) {
-    //         ko.utils.arrayForEach(self.myplaces(), function(i) {
-    //             i.marker.setVisible(true);
-    //         });
-    //         return self.myplaces();
-    //     } else {
-    //         return ko.utils.arrayFilter(self.myplaces(), function(i) {
-    //             if (i.name.toLowerCase().indexOf(filter) !== -1) {
-    //                 i.marker.setVisible(true);
-    //                 return true;
-    //             } else {
-    //                 i.marker.setVisible(false);
-    //                 return false;
-    //             }
-    //         });
-    //     }
-    // }, self);
-
-
-//Method2
-//     MyAppsViewModel.filteredItems = ko.computed(function() {
-//     var filter = this.filter().toLowerCase();
-//     if (!filter) {
-//         return this.myplaces();
-//     } else {
-//         return ko.utils.arrayFilter(this.myplaces(), function(myplaces) {
-//             return ko.utils.stringStartsWith(myplaces.title().toLowerCase(), filter);
-//         });
-//     }
-// }, MyAppsViewModel);
-
+    this.setMarker = function() {
+        populateInfoWindow(this.marker, myInfoWindow);
+    };//populating infowindow on the correct marker
+    self.query = ko.observable('');
+    self.search = ko.computed(function() {
+        var mysearchList = ko.utils.arrayFilter(self.myplaces(), function(i) {
+            if (i.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0) {
+                if (i.marker) {
+                    i.marker == true;
+                }
+                return true;
+            } else {
+                i.marker == false;
+            }
+        });
+        return mysearchList;
+    });
 };
 
 ko.applyBindings(new MyAppsViewModel());
