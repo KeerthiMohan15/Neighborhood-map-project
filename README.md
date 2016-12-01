@@ -30,8 +30,9 @@ Images are compressed and converted into png using online converter and compress
     * http://www.internetkultur.at/simple-hamburger-drop-down-menu-with-css-and-jquery/
 * Google API Documentation
 * Knockout documentation
+* http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
 * jQuery API documentation
 
 A huge thanks to the mentors and coaches of Udacity for their huge support in the discussion forums
   * https://discussions.udacity.com/t/binding-with-corresponding-marker-on-clicking-element-in-list/200821
-
+  *Many more other related topics in the discussion forums
