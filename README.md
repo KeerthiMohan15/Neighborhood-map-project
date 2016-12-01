@@ -35,4 +35,4 @@ Images are compressed and converted into png using online converter and compress
 
 A huge thanks to the mentors and coaches of Udacity for their huge support in the discussion forums
   * https://discussions.udacity.com/t/binding-with-corresponding-marker-on-clicking-element-in-list/200821
-  *Many more other related topics in the discussion forums
+  * Many more other related topics in the discussion forums
