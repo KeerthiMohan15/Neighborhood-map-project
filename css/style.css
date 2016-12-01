@@ -50,6 +50,7 @@ body {
     #map {
         position: absolute;
         width: 100%;
+        padding-top: 30px;
     }
     .mobile-nav {
         width: 100%;
