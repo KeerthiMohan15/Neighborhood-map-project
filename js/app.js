@@ -1,4 +1,4 @@
-//Reload page
+//Reload page on click of button
 var reload = function(){
     window.location.reload();
 };
@@ -163,6 +163,7 @@ function populateInfoWindow(marker, infowindow) {
         $mylink.text("Failed to get wikipedia resources");
     }, 8000);
 
+//ajax request for wikipedia article links
     $.ajax({
         url: wikiUrl,
         dataType: "jsonp",
@@ -189,17 +190,14 @@ var MyAppsViewModel = function() {
     };//populating infowindow on the correct marker
     self.query = ko.observable('');
     self.search = ko.computed(function() {
-        var mysearchList = ko.utils.arrayFilter(self.myplaces(), function(i) {
+        return mysearchList = ko.utils.arrayFilter(self.myplaces(), function(i) {
             if (i.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0) {
-                if (i.marker) {
                     i.marker == true;
-                }
-                return true;
+                    return true;
             } else {
-                alert('No match found');
+                return false;
             }
         });
-        return mysearchList;
     });
 };
 
