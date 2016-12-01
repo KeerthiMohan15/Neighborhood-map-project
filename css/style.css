@@ -14,10 +14,10 @@ hr {
 }
 
 #map {
-    height: 100%;
-    width:98%;
+    height: 88%;
+    width:60%;
     float: right;
-    position: absolute;
+/*    position: absolute;*/
   }
 
 html, body {
@@ -46,14 +46,23 @@ html, body {
 }
 
 .list-content {
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+}
+
+.mobile-nav {
+    width: 40%;
+    float:left;
 }
 
  @media only screen and (max-width: 800px){
 
 #map {
     position: absolute;
-    width: 92%;
+    width: 100%;
+}
+
+.mobile-nav {
+    width: 100%;
 }
 
 .menu-btn div {
