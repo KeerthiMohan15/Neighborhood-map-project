@@ -101,6 +101,7 @@ function initMap() {
             lng: 76.2998842
         },
         zoom: 10,
+        // mapTypeId:google.maps.MapTypeId.SATELLITE,
     });
     myInfoWindow = new google.maps.InfoWindow();
     getmymarkers();
@@ -181,6 +182,13 @@ var MyAppsViewModel = function(){
     this.setMarker = function(){
         populateInfoWindow(this.marker,myInfoWindow);
     };
+//Method3
+    // self.query = ko.observable('');
+    // self.search = ko.computed(function() {
+    //     return ko.utils.arrayFilter(self.myplaces(), function(title){
+    //         return myplaces.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0;
+    //     });
+    // });
 
 //Method1
     // self.filterlist = ko.computed(function(){
