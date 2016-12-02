@@ -10,9 +10,9 @@ hr {
     height: 4px;
     background-color: white;
 }
-#map {
+#map, .mymap {
     height: 88%;
-    width: 60%;
+    width: 99%;
     float: right;
     /*    position: absolute;*/
 }
@@ -43,13 +43,12 @@ body {
     padding-bottom: 15px;
 }
 .mobile-nav {
-    width: 40%;
-    float: left;
+    width: 60%;
 }
 @media only screen and (max-width: 800px) {
-    #map {
+    #map, .mymap {
         position: absolute;
-        width: 100%;
+        width: 92%;
         padding-top: 30px;
     }
     .mobile-nav {

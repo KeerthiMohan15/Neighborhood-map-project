@@ -5,8 +5,15 @@ var reload = function() {
 
 // If Google Map alerts its failure to load
 var Alert = function() {
-    alert('Failed to load!!');
+    alert('Failed to load!!Network error');
 };
+
+//Navigation Bar
+jQuery(function($) {
+    $('.menu-btn').click(function() {
+        $('.responsive-menu').toggleClass('expand')
+    });
+});
 
 var map;
 var marker;
@@ -183,6 +190,7 @@ function populateInfoWindow(marker, infowindow) {
 //Knockout binding //Filtering action
 var MyAppsViewModel = function() {
     var self = this;
+    self.navi = ko.observable('');
     self.myplaces = ko.observableArray(myplaces);
     self.title = ko.observable('');
     this.setMarker = function() {
