@@ -141,6 +141,7 @@ function getmymarkers() {
         // Create an onclick event to open an infowindow at each marker.
         marker.addListener('click', function() {
             populateInfoWindow(this, myInfoWindow);
+            toggleBouncer(this);
         });
         bounds.extend(markers[i].position);
         myplaces[i].marker = marker;
@@ -156,10 +157,8 @@ function populateInfoWindow(marker, infowindow) {
         infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br>' + '<div id="wikipedia-links"></div>');
         infowindow.marker = marker;
         infowindow.open(map, marker);
-        marker.setAnimation(google.maps.Animation.BOUNCE); //applying bounce animation when marker is clicked toopen infowindow
         infowindow.addListener('closeclick', function() {
             infowindow.marker = null; //clear marker property on closing infowindow
-            marker.setAnimation(null); //stopping bounce animation on closing infowindow
         });
     }
 
@@ -185,6 +184,13 @@ function populateInfoWindow(marker, infowindow) {
             clearTimeout(wikiRequestTimeout);
         }
     });
+};
+
+function toggleBouncer(marker) {
+    marker.setAnimation(google.maps.Animation.BOUNCE); //applying bounce animation when marker is clicked toopen infowindow
+    setTimeout(function() {
+        marker.setAnimation(google.maps.Animation.null); //stopping bounce animation on closing infowindow
+    }, 1500);
 };
 
 //Knockout binding //Filtering action
