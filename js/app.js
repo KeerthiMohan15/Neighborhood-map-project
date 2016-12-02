@@ -154,7 +154,8 @@ function getmymarkers() {
 function populateInfoWindow(marker, infowindow) {
     //See if the infowindow is not opened already on this marker.
     if (infowindow.marker != marker) {
-        infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br>' + '<div id="wikipedia-links"></div>');
+        infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br><br><div>Wikipedia link </div><br>' + ' <a href="https://en.wikipedia.org/w/index.php?title='+marker.title+'">'+
+              'https://en.wikipedia.org/w/index.php?title='+marker.title+'</a> '+'</p>');
         infowindow.marker = marker;
         infowindow.open(map, marker);
         infowindow.addListener('closeclick', function() {
@@ -164,6 +165,7 @@ function populateInfoWindow(marker, infowindow) {
 
     // load wikipedia data and append to the infowindow
     var $mylink = $('#wikipedia-links');
+    $mylink.text("");
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
     //ajax request for wikipedia article links
