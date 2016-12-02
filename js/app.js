@@ -152,20 +152,7 @@ function getmymarkers() {
 
 //populate infowindow when the marker is clicked and only open on the clicked marker
 function populateInfoWindow(marker, infowindow) {
-    //See if the infowindow is not opened already on this marker.
-    if (infowindow.marker != marker) {
-        infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br><br><div>Wikipedia link </div><br>' + ' <a href="https://en.wikipedia.org/w/index.php?title='+marker.title+'">'+
-              'https://en.wikipedia.org/w/index.php?title='+marker.title+'</a> '+'</p>');
-        infowindow.marker = marker;
-        infowindow.open(map, marker);
-        infowindow.addListener('closeclick', function() {
-            infowindow.marker = null; //clear marker property on closing infowindow
-        });
-    }
-
-    // load wikipedia data and append to the infowindow
-    var $mylink = $('#wikipedia-links');
-    $mylink.text("");
+    // load wikipedia data
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
     //ajax request for wikipedia article links
@@ -174,12 +161,17 @@ function populateInfoWindow(marker, infowindow) {
         dataType: "jsonp",
         //jsonp:"callback",
     }).done(function(response) {
-        var wikiList = response[1];
-        for (var i = 0; i < wikiList.length; i++) {
-            wikiStr = wikiList[i];
-            var url = 'http://en.wikipedia.org/wiki/' + wikiStr;
-            $mylink.append('<li><a href=" ' + url + ' ">' + wikiStr + '</a></li>');
-        };
+        var wikiStr = response[1];
+        var url = 'http://en.wikipedia.org/wiki/' + wikiStr;
+        //See if the infowindow is not opened already on this marker.
+        if (infowindow.marker != marker) {
+            infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br><br><div>Wikipedia link </div><br>' + '<div><a href="' + url + '">' + url + '</a></div>');
+            infowindow.marker = marker;
+            infowindow.open(map, marker);
+            infowindow.addListener('closeclick', function() {
+                infowindow.marker = null; //clear marker property on closing infowindow
+            });
+        }; //Moved the entire setContent part to the success callback of the Wikipedia API request as per instruction of coach from discussion forums
     }).fail(function(jqXHR, textStatus) {
         alert("Failed to get wikipedia resources.Check the network connection!");
     });
@@ -189,7 +181,7 @@ function toggleBouncer(marker) {
     marker.setAnimation(google.maps.Animation.BOUNCE); //applying bounce animation when marker is clicked toopen infowindow
     setTimeout(function() {
         marker.setAnimation(google.maps.Animation.null); //stopping bounce animation on closing infowindow
-    }, 1500);
+    }, 1500);//stop bounce animation after 1.5s
 };
 
 //Knockout binding //Filtering action
