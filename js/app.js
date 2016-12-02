@@ -165,24 +165,21 @@ function populateInfoWindow(marker, infowindow) {
     // load wikipedia data and append to the infowindow
     var $mylink = $('#wikipedia-links');
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
-    var wikiRequestTimeout = setTimeout(function() {
-        $mylink.text("Failed to get wikipedia resources");
-    }, 8000);
 
     //ajax request for wikipedia article links
     $.ajax({
         url: wikiUrl,
         dataType: "jsonp",
         //jsonp:"callback",
-        success: function(response) {
-            var wikiList = response[1];
-            for (var i = 0; i < wikiList.length; i++) {
-                wikiStr = wikiList[i];
-                var url = 'http://en.wikipedia.org/wiki/' + wikiStr;
-                $mylink.append('<li><a href=" ' + url + ' ">' + wikiStr + '</a></li>');
-            };
-            clearTimeout(wikiRequestTimeout);
-        }
+    }).done(function(response) {
+        var wikiList = response[1];
+        for (var i = 0; i < wikiList.length; i++) {
+            wikiStr = wikiList[i];
+            var url = 'http://en.wikipedia.org/wiki/' + wikiStr;
+            $mylink.append('<li><a href=" ' + url + ' ">' + wikiStr + '</a></li>');
+        };
+    }).fail(function(jqXHR, textStatus) {
+        alert("Failed to get wikipedia resources.Check the network connection!");
     });
 };
 
