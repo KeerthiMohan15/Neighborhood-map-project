@@ -5,7 +5,7 @@ var reload = function() {
 
 // If Google Map alerts its failure to load
 var Alert = function() {
-    alert('Failed to load google map!!Network error');
+    alert('Failed to load!!Network error');
 };
 
 //Navigation Bar
@@ -154,8 +154,7 @@ function getmymarkers() {
 function populateInfoWindow(marker, infowindow) {
     //See if the infowindow is not opened already on this marker.
     if (infowindow.marker != marker) {
-        infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br><br><div> Wikipedia Link </div><br>' + ' <a href="https://en.wikipedia.org/w/index.php?title='+marker.title+'">'+
-              'https://en.wikipedia.org/w/index.php?title='+marker.title+'</a> '+'</p>');
+        infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '"><br>' + '<div id="wikipedia-links"></div>');
         infowindow.marker = marker;
         infowindow.open(map, marker);
         infowindow.addListener('closeclick', function() {
@@ -164,6 +163,7 @@ function populateInfoWindow(marker, infowindow) {
     }
 
     // load wikipedia data and append to the infowindow
+    var $mylink = $('#wikipedia-links');
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
     //ajax request for wikipedia article links
@@ -176,6 +176,7 @@ function populateInfoWindow(marker, infowindow) {
         for (var i = 0; i < wikiList.length; i++) {
             wikiStr = wikiList[i];
             var url = 'http://en.wikipedia.org/wiki/' + wikiStr;
+            $mylink.append('<li><a href=" ' + url + ' ">' + wikiStr + '</a></li>');
         };
     }).fail(function(jqXHR, textStatus) {
         alert("Failed to get wikipedia resources.Check the network connection!");
