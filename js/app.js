@@ -152,15 +152,11 @@ function getmymarkers() {
 
 //populate infowindow when the marker is clicked and only open on the clicked marker
 function populateInfoWindow(marker, infowindow) {
-    // //See if the infowindow is not opened already on this marker.
-    // if (infowindow.marker != marker) {
-    //     infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '">');
-    //     infowindow.marker = marker;
-    //     infowindow.open(map, marker);
-    //     infowindow.addListener('closeclick', function() {
-    //         infowindow.marker = null; //clear marker property on closing infowindow
-    //     });
-    // }
+    if (infowindow.marker != marker) {
+        infowindow.marker = marker;
+        infowindow.open(map, marker);
+        infowindow.setContent('<div>' + marker.title + '</div><br>' + '<img src="' + marker.img + '" alt="Image of ' + marker.title + '">');
+    }
     // load wikipedia data
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
